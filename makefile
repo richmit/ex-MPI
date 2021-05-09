@@ -1,4 +1,4 @@
-##
+## -*- fill-column:110 -*-
 # @file      makefile
 # @author    Mitch Richling <https://www.mitchr.me/>
 # @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -6,8 +6,7 @@
 # @Keywords  MPI examples
 # @Std       GenericMake
 
-# Depending upon which MPI implementation is used, the following may
-# need to be adjusted.
+# Depending upon which MPI implementation is used, the following may need to be adjusted.
 MPICC  = mpicc
 MPICXX = mpic++
 MPIFC  = mpif77

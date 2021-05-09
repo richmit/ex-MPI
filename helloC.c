@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      helloC.c
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -6,20 +6,19 @@
    @Keywords  LAM MPICH MPI
    @Std       C89  MPI1
 
-              This is a "hello world" program for MPI using the
-              C bindings.  Functions illustrated:
+              This is a "hello world" program for MPI using the C bindings.  Functions illustrated:
 
                    MPI_Init
                    MPI_Comm_rank
                    MPI_Comm_size
                    MPI_Finalize
 
-              Not all platforms allow console I/O on all MPI
-              processes, so this program can fail on some platforms.
+              Not all platforms allow console I/O on all MPI processes, so this program can fail on some
+              platforms.
 */
 
-#include <stdio.h>              /* I/O lib         ISOC  */
-#include <mpi.h>                /* MPI Std         MPI   */
+#include <stdio.h>                                                       /* I/O lib                 C89      */
+#include <mpi.h>                                                         /* MPI Std                 MPI      */
 
 int main(int argc, char *argv[]) {
   int rank, size;

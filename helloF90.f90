@@ -1,13 +1,13 @@
+!  -*- fill-column:128 -*-
 !  Author:   Mitch Richling<https://www.mitchr.me/>
 !  IP:       Copyright 1999 by Mitch Richling.  All rights reserved.
 !  Key word: MPI LAM MPICH
 !  Std:      F90 MPI1
-!  Notes:    This is a "hello world" program for MPI using the
-!            Fortran 90 bindings.  This version is almost identical
-!            to the f77 version, except we make use of the header.
+!  Notes:    This is a "hello world" program for MPI using the Fortran 90 bindings.  This version is almost
+!            identical to the f77 version, except we make use of the header.
 !            
-!            Not all platforms allow console I/O on all MPI
-!            processes, so this program can fail on some platforms.
+!            Not all platforms allow console I/O on all MPI processes, so this program can fail on some
+!            platforms.
 
       program mpihel
       implicit none

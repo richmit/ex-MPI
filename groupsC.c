@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      groupsC.c
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1998 by Mitch Richling.  All rights reserved.
@@ -6,15 +6,13 @@
    @Keywords  MPI groups communicators
    @Std       C99
 
-              This program illistrates a typical use of MPI
-              communicators and MPI groups.
+              This program illistrates a typical use of MPI communicators and MPI groups.
 
-              Not all platforms allow console I/O on all MPI
-              processes.  On such platforms, this program can fail.
+              Not all platforms allow console I/O on all MPI processes.  On such platforms, this program can fail.
 */
 
-#include "mpi.h"
-#include <stdio.h>              /* I/O lib         ISOC  */
+#include <mpi.h>                                                         /* MPI Std                 MPI      */
+#include <stdio.h>                                                       /* I/O lib                 C89      */
 
 int main(int argc, char *argv[]) {
   int        oldRank, newRank, oldSize, newSize;

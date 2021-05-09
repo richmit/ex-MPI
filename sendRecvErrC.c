@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      sendRecvErrC.c
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -13,16 +13,14 @@
                     MPI_Abort
                     MPI_
 
-              This program demonstrates a way to avoid a typical
-              deadlock situation encountered in many MPI applications.
-              The idea is to use MPI_Iprobe to check if a message is
-              waiting before we call a blocking MPI_Recv function.  We
-              keep probing until we have a message or we have waited
-              too long.
+              This program demonstrates a way to avoid a typical deadlock situation encountered in many MPI
+              applications.  The idea is to use MPI_Iprobe to check if a message is waiting before we call a
+              blocking MPI_Recv function.  We keep probing until we have a message or we have waited too long.
 */
 
-#include <stdio.h>              /* I/O lib         ISOC  */
-#include <mpi.h>                /* MPI Std         MPI   */
+#include <unistd.h>                                                      /* UNIX std stf            POSIX    */
+#include <stdio.h>                                                       /* I/O lib                 C89      */
+#include <mpi.h>                                                         /* MPI Std                 MPI      */
 
 int main(int argc, char *argv[]) {
   int rank, size, n, rslt, i, flags;
@@ -39,16 +37,12 @@ int main(int argc, char *argv[]) {
     printf("Mr. Zero waiting for %d slaves to check in.\n", size);
     for(i=1;i<size;i++) {
       
-      /* Many production MPI programs are quite badly behaved in the
-         face of unexpected failures.  For example, it would be
-         typical to see the following loop using Iprobe simply missing
-         from most production codes.  Such code would hang forever if
-         one of the slaves (nonzero rank processes) were to
-         prematurely crash.  With just a little bit of care and code,
-         we can avoid the vast majority of such cases.  The following
-         loop, for example, still leaves a chance open for deadlock
-         but it will catch the vast majority of slave crash events
-         possible.  In order to illustrate the idea behind this loop I
+      /* Many production MPI programs are quite badly behaved in the face of unexpected failures.  For
+         example, it would be typical to see the following loop using Iprobe simply missing from most
+         production codes.  Such code would hang forever if one of the slaves (nonzero rank processes) were to
+         prematurely crash.  With just a little bit of care and code, we can avoid the vast majority of such
+         cases.  The following loop, for example, still leaves a chance open for deadlock but it will catch
+         the vast majority of slave crash events possible.  In order to illustrate the idea behind this loop I
          have removed the checks for the function return codes.*/
       needData=1;
       while(needData) {
@@ -87,8 +81,8 @@ int main(int argc, char *argv[]) {
        rank 0 process. */
     sleep(rank/2+1);
 
-    /* Send a message. MPI_Ssend(...) is the same thing, but it blocks
-       until the receiver starts to read data. */
+    /* Send a message. MPI_Ssend(...) is the same thing, but it blocks until the receiver starts to read
+       data. */
     MPI_Send(&rank, 1, MPI_INT, // The data, number of elements, and type
              0,                 // Who to send data too
              999,               // Tag to use (random number in this case)

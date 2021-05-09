@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      reduceC.c
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -8,17 +8,15 @@
 
               sum(i=2,n,sum(j=0,i,j))
 
-              This program computes the silly nested sum above in
-              order to demonstrate the following functions:
+              This program computes the silly nested sum above in order to demonstrate the following
+              functions:
 
                     MPI_Bcast
                     MPI_Reduce
                     MPI_Gather
 
-              This code assumes that the environment provides
-              stdin/stdout for the rank 0 process. While most MPI
-              implementations do provide this functionality, if yours
-              doesn't then this code will fail.
+              This code assumes that the environment provides stdin/stdout for the rank 0 process. While most
+              MPI implementations do provide this functionality, if yours doesn't then this code will fail.
 */
  
 #include <stdio.h>              /* I/O lib         ISOC  */

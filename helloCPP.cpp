@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      helloCPP.cc
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -6,14 +6,12 @@
    @Keywords  LAM MPI
    @Std       C++ MPI1
 
-              This is a "hello world" program for MPI using the
-              C++ bindings.  Note that not all platforms allow
-              console I/O on all MPI processes, so this program
-              can fail on some platforms.
+              This is a "hello world" program for MPI using the C++ bindings.  Note that not all platforms
+              allow console I/O on all MPI processes, so this program can fail on some platforms.
 */
 
-#include <iostream> /* Need for cout/endl                       */
-#include <mpi.h>    /* Standard MPI header for the C++ bindings */
+#include <iostream>                                                      /* C++ iostream            C++11    */
+#include <mpi.h>                                                         /* MPI Std                 MPI      */
 
 int main(int argc, char *argv[]) {
   int rank, size;

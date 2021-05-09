@@ -1,4 +1,4 @@
-/**
+/** -*- fill-column:110 -*-
    @file      sendRecvC.c
    @author    Mitch Richling <https://www.mitchr.me/>
    @Copyright Copyright 1999 by Mitch Richling.  All rights reserved.
@@ -11,22 +11,19 @@
                     MPI_Send
                     MPI_Recv
 
-              Note that this program makes the same mistake that many
-              real world MPI programs do.  It makes the assumption
-              that no process will die and that all will end up
-              sending back the part of the computation they were
-              responsible for. In this program, if that doesn't
-              happen, then the rank 0 process will wait forever for a
-              communication that may never come.  See sendRecvErrC.c
-              for a way out of this situation.
+              Note that this program makes the same mistake that many real world MPI programs do.  It makes
+              the assumption that no process will die and that all will end up sending back the part of the
+              computation they were responsible for. In this program, if that doesn't happen, then the rank 0
+              process will wait forever for a communication that may never come.  See sendRecvErrC.c for a way
+              out of this situation.
 
-              This code requires that the rank zero process have
-              stdout capabilities -- which most MPI implementations
-              provide.
+              This code requires that the rank zero process have stdout capabilities -- which most MPI
+              implementations provide.
 */
 
-#include <stdio.h>              /* I/O lib         ISOC  */
-#include <mpi.h>                /* MPI Std         MPI   */
+#include <unistd.h>                                                      /* UNIX std stf            POSIX    */
+#include <stdio.h>                                                       /* I/O lib                 C89      */
+#include <mpi.h>                                                         /* MPI Std                 MPI      */
 
 int main(int argc, char *argv[]) {
   int rank, size, n, rslt, i, flags;
@@ -42,9 +39,8 @@ int main(int argc, char *argv[]) {
     printf("Mr. Zero has come on line....\n");
     printf("Mr. Zero waiting for %d slaves to check in.\n", size);
 
-    /* NOTE: If a slave process were to die before sending it's
-       results back, this loop would hang forever.  See sendRecvErrC.c
-       for an example of how to recover in that situation.*/
+    /* NOTE: If a slave process were to die before sending it's results back, this loop would hang forever.
+       See sendRecvErrC.c for an example of how to recover in that situation.*/
     for(i=1;i<size;i++) {
       
       /* Receive a message. */
@@ -57,12 +53,11 @@ int main(int argc, char *argv[]) {
              n, status.MPI_SOURCE, status.MPI_TAG, status.MPI_ERROR, rslt);
     } /* end for */
   } else {
-    /* Sleep a bit to help demonstrate the probe and wait code in the
-       rank 0 process. */
+    /* Sleep a bit to help demonstrate the probe and wait code in the rank 0 process. */
     sleep(rank/2+1);
 
-    /* Send a message. MPI_Ssend(...) is the same thing, but it blocks
-       until the receiver starts to read data. */
+    /* Send a message. MPI_Ssend(...) is the same thing, but it blocks until the receiver starts to read
+       data. */
     MPI_Send(&rank, 1, MPI_INT, // The data, number of elements, and type
              0,                 // Who to send data too
              999,               // Tag to use (random number in this case)
