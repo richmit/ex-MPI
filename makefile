@@ -9,7 +9,8 @@
 # Depending upon which MPI implementation is used, the following may need to be adjusted.
 MPICC  = mpicc
 MPICXX = mpic++
-MPIFC  = mpif77
+MPIF7  = mpif77
+MPIF9  = mpif90
 
 # Uncomment to build all when make file changes
 #SPECDEP=makefile
@@ -26,10 +27,10 @@ helloCPP : helloCPP.cpp $(SPECDEP)
 	$(MPICXX) helloCPP.cpp -o helloCPP
 
 helloF90 : helloF90.f90 $(SPECDEP)
-	$(MPIFC) helloF90.f90 -o helloF90
+	$(MPIF9) helloF90.f90 -o helloF90
 
 helloF77 : helloF77.f $(SPECDEP)
-	$(MPIFC) helloF77.f -o helloF77
+	$(MPIF7) helloF77.f -o helloF77
 
 initStuffC : initStuffC.c $(SPECDEP)
 	$(MPICC) initStuffC.c -o initStuffC
